@@ -1,0 +1,27 @@
+name: Rule request
+description: Suggest a new lint rule
+title: "[Rule] "
+labels:
+  - rule-request
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What agent instruction problem should this catch?
+    validations:
+      required: true
+  - type: textarea
+    id: example
+    attributes:
+      label: Example
+      description: Provide a short instruction snippet that should trigger the rule.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected finding
+      description: What should the tool report?
+    validations:
+      required: true
