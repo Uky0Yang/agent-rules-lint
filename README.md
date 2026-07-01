@@ -127,9 +127,19 @@ jobs:
 
 ```bash
 python -m pip install -e .
-python -m pytest
+python -m unittest discover -s tests
 python -m agent_rules_lint .
 ```
+
+## Agent OSS Toolkit
+
+This project is part of a small toolkit for building and launching agent-ready open-source repositories:
+
+- [agent-repo-kit](https://github.com/Uky0Yang/agent-repo-kit): scaffold launch-ready, AI-agent-friendly repositories
+- [oss-launch-check](https://github.com/Uky0Yang/oss-launch-check): audit whether a repository is ready to launch as open source
+- [repo-context-card](https://github.com/Uky0Yang/repo-context-card): generate compact repository context cards for coding agents
+- [agent-rules-lint](https://github.com/Uky0Yang/agent-rules-lint): lint AGENTS.md, CLAUDE.md, Cursor rules, and Copilot instructions
+- [awesome-ai-agents-zh](https://github.com/Uky0Yang/awesome-ai-agents-zh): Chinese AI Agents / MCP / AI DevTools directory
 
 ## Contributing
 
