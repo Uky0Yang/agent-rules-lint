@@ -1,5 +1,10 @@
 # agent-rules-lint
 
+[![PyPI](https://img.shields.io/pypi/v/agent-rules-lint)](https://pypi.org/project/agent-rules-lint/)
+[![Python](https://img.shields.io/pypi/pyversions/agent-rules-lint)](https://pypi.org/project/agent-rules-lint/)
+[![CI](https://github.com/Uky0Yang/agent-rules-lint/actions/workflows/ci.yml/badge.svg)](https://github.com/Uky0Yang/agent-rules-lint/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 Lint AI agent instruction files before they confuse your coding agent.
 
 `agent-rules-lint` is a small, dependency-free Python CLI that scans files such as `AGENTS.md`, `CLAUDE.md`, Cursor rules, and GitHub Copilot instructions for common quality and safety problems.
@@ -31,16 +36,29 @@ Bad agent instructions are expensive. They can be too long, vague, contradictory
 
 ## Install
 
-From this repository:
+Run it without installing:
+
+```bash
+uvx agent-rules-lint .
+```
+
+Or install it as an isolated CLI:
+
+```bash
+pipx install agent-rules-lint
+agent-rules-lint .
+```
+
+Standard pip installation also works:
+
+```bash
+python -m pip install agent-rules-lint
+```
+
+For local development:
 
 ```bash
 python -m pip install -e .
-```
-
-Or run without installing:
-
-```bash
-python -m agent_rules_lint .
 ```
 
 ## Usage
@@ -100,12 +118,11 @@ jobs:
   lint-agent-rules:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7.0.0
+      - uses: actions/setup-python@v6.3.0
         with:
           python-version: "3.12"
-      - run: python -m pip install -e .
-      - run: agent-rules-lint . --warnings-as-errors
+      - run: pipx run agent-rules-lint . --warnings-as-errors
 ```
 
 ## Design Principles
@@ -127,7 +144,7 @@ jobs:
 
 ```bash
 python -m pip install -e .
-python -m unittest discover -s tests
+python -m unittest discover -s tests -v
 python -m agent_rules_lint .
 ```
 

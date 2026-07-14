@@ -6,7 +6,7 @@
 - Add markdown output
 - Add line excerpts in JSON output
 - Support config in `pyproject.toml`
-- Publish to PyPI
+- Keep PyPI releases automated through Trusted Publishing
 
 ## Mid Term
 

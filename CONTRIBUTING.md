@@ -15,7 +15,8 @@ Thanks for helping improve `agent-rules-lint`.
 Run:
 
 ```bash
-python -m pytest
+python -m unittest discover -s tests -v
+python -m compileall -q agent_rules_lint tests
 python -m agent_rules_lint .
 ```
 
