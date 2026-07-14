@@ -16,7 +16,8 @@ class LinterTests(unittest.TestCase):
             (root / ".cursor" / "rules" / "ui.md").write_text("# UI\n\nScope section.", encoding="utf-8")
             (root / "README.md").write_text("# Ignore", encoding="utf-8")
 
-            discovered = [path.relative_to(root).as_posix() for path in discover_instruction_files(root)]
+            resolved_root = root.resolve()
+            discovered = [path.relative_to(resolved_root).as_posix() for path in discover_instruction_files(root)]
 
             self.assertEqual(discovered, [".cursor/rules/ui.md", "AGENTS.md"])
 
