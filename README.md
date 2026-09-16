@@ -1,5 +1,7 @@
 # agent-rules-lint
 
+New: SARIF reports, GitHub Action and pre-commit integration. [Usage and examples](docs/maintenance-2026-09.md).
+
 [![PyPI](https://img.shields.io/pypi/v/agent-rules-lint)](https://pypi.org/project/agent-rules-lint/)
 [![Python](https://img.shields.io/pypi/pyversions/agent-rules-lint)](https://pypi.org/project/agent-rules-lint/)
 [![CI](https://github.com/Uky0Yang/agent-rules-lint/actions/workflows/ci.yml/badge.svg)](https://github.com/Uky0Yang/agent-rules-lint/actions/workflows/ci.yml)

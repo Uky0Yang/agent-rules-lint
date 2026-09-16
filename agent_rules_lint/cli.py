@@ -6,6 +6,7 @@ import sys
 
 from . import __version__
 from .linter import LintResult, lint_path
+from .sarif import render_sarif
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -14,7 +15,8 @@ def build_parser() -> argparse.ArgumentParser:
         description="Lint AI agent instruction files such as AGENTS.md, CLAUDE.md, Cursor rules, and Copilot instructions.",
     )
     parser.add_argument("path", nargs="?", default=".", help="Repository or directory to scan.")
-    parser.add_argument("--format", choices=("text", "json"), default="text", help="Output format.")
+    parser.add_argument("--format", choices=("text", "json", "sarif"), default="text", help="Output format.")
+    parser.add_argument("--output", "-o", type=Path, help="Write the report to a file.")
     parser.add_argument("--max-chars", type=int, default=12000, help="Warn when a file exceeds this many characters.")
     parser.add_argument("--warnings-as-errors", action="store_true", help="Exit non-zero when warnings are found.")
     parser.add_argument("--version", action="version", version=f"%(prog)s {__version__}")
@@ -58,12 +60,20 @@ def exit_code(result: LintResult, warnings_as_errors: bool) -> int:
 def main(argv: list[str] | None = None) -> int:
     parser = build_parser()
     args = parser.parse_args(argv)
-    result = lint_path(Path(args.path), max_chars=args.max_chars)
-
-    if args.format == "json":
-        print(result.to_json())
-    else:
-        print(render_text(result))
+    try:
+        if not Path(args.path).is_dir():
+            raise ValueError(f"not a directory: {args.path}")
+        result = lint_path(Path(args.path), max_chars=args.max_chars)
+        output = (result.to_json() if args.format == "json" else
+                  render_sarif(result) if args.format == "sarif" else render_text(result))
+        if args.output:
+            args.output.parent.mkdir(parents=True, exist_ok=True)
+            args.output.write_text(output + "\n", encoding="utf-8", newline="\n")
+        else:
+            print(output)
+    except (OSError, ValueError) as exc:
+        print(f"agent-rules-lint: {exc}", file=sys.stderr)
+        return 2
 
     return exit_code(result, warnings_as_errors=args.warnings_as_errors)
 

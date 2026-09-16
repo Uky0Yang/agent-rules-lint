@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-labelledby="title desc">
+<title id="title">agent-rules-lint</title><desc id="desc">Lint the instructions your agents follow. AGENTS.md / CLAUDE.md / Cursor rules.</desc>
+<rect width="1280" height="640" fill="#f6f3ec"/>
+<rect x="0" y="0" width="18" height="640" fill="#dd7b38"/>
+<path d="M1050 74h156v156M1136 74v156M1050 152h156" fill="none" stroke="#dd7b38" stroke-width="3" opacity=".5"/>
+<g font-family="Arial, sans-serif" fill="#212922">
+<text x="66" y="78" font-size="20" letter-spacing="3" fill="#dd7b38">UKYO / OPEN SOURCE TOOLS</text>
+<text x="66" y="144" font-size="34" font-family="Consolas, monospace">agent-rules-lint</text>
+<text x="62" y="249" font-size="66" font-weight="700">Lint the instructions</text>
+<text x="62" y="326" font-size="66" font-weight="700">your agents follow.</text>
+<text x="66" y="384" font-size="26" fill="#586157">AGENTS.md / CLAUDE.md / Cursor rules</text>
+<path d="M66 429h1148" stroke="#d2d7cd"/>
+<circle cx="82" cy="479" r="17" fill="#dd7b38"/><text x="77" y="485" fill="white" font-size="16">1</text><text x="114" y="487" font-size="23">Scan rules</text>
+<circle cx="482" cy="479" r="17" fill="#dd7b38"/><text x="477" y="485" fill="white" font-size="16">2</text><text x="514" y="487" font-size="23">Review findings</text>
+<circle cx="882" cy="479" r="17" fill="#dd7b38"/><text x="877" y="485" fill="white" font-size="16">3</text><text x="914" y="487" font-size="23">Use in CI</text>
+<text x="66" y="584" font-family="Consolas, monospace" font-size="20" fill="#586157">github.com/Uky0Yang/agent-rules-lint</text>
+</g></svg>

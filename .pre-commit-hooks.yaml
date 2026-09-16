@@ -1,0 +1,6 @@
+- id: agent-rules-lint
+  name: Lint agent instructions
+  entry: agent-rules-lint . --warnings-as-errors
+  language: python
+  pass_filenames: false
+  always_run: true

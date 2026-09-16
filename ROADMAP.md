@@ -2,6 +2,8 @@
 
 ## Near Term
 
+Shipped in v0.2.0: SARIF, a composite GitHub Action and a pre-commit hook.
+
 - Add more real-world examples
 - Add markdown output
 - Add line excerpts in JSON output
@@ -11,8 +13,6 @@
 ## Mid Term
 
 - Add rule IDs with documentation pages
-- Add SARIF output for GitHub code scanning
-- Add pre-commit hook documentation
 - Add optional token estimation adapters
 - Add fixture corpus from public agent instruction files
 
@@ -20,7 +20,6 @@
 
 - Build a benchmark of high-quality agent instruction files
 - Add project-specific profiles for Codex, Claude Code, Cursor, Copilot, and Gemini CLI
-- Provide a GitHub Action wrapper
 
 ## Non-Goals
 

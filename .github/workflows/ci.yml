@@ -11,6 +11,12 @@ permissions:
   contents: read
 
 jobs:
+  action-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: ./
+      - run: python -c "import json; d=json.load(open('agent-rules-lint.sarif')); assert d['version']=='2.1.0'"
   test:
     strategy:
       fail-fast: false
